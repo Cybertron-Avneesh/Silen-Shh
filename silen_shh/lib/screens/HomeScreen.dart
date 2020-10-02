@@ -7,6 +7,7 @@ import 'package:share/share.dart';
 import 'package:sound_mode/permission_handler.dart';
 import 'package:sound_mode/sound_mode.dart';
 import 'package:sound_mode/utils/sound_profiles.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -183,11 +184,28 @@ class _MyAppState extends State<HomeScreen> {
     await PermissionHandler.openDoNotDisturbSetting();
   }
 
+  String getUrl(
+      String scheme, String path, Map<String, String> queryParameters) {
+    String url = '$scheme:$path?';
+
+    queryParameters.forEach((String k, String v) {
+      url += '$k=$v&';
+    });
+
+    return url;
+  }
+
   void _handleMenuItemClick(String choice) {
     switch (choice) {
       case "Share":
         Share.share(
             "Mute your phone and be indistractable.\nhttps://github.com/Cybertron-Avneesh/Silen-Shh");
+        break;
+      case "Feedback":
+        var _scheme = 'mailto';
+        var _path = 'email1234@email.com';
+        var _queryParameters = {'subject': 'Feedback of the app silen_shh'};
+        launch(getUrl(_scheme, _path, _queryParameters));
         break;
       default:
     }
