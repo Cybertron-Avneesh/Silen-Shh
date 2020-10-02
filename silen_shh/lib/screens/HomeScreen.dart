@@ -3,10 +3,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:share/share.dart';
 import 'package:sound_mode/permission_handler.dart';
 import 'package:sound_mode/sound_mode.dart';
 import 'package:sound_mode/utils/sound_profiles.dart';
-
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class _MyAppState extends State<HomeScreen> {
 
     setState(() {
       _permissionStatus =
-      permissionStatus ? "Permissions Enabled" : "Permissions not granted";
+          permissionStatus ? "Permissions Enabled" : "Permissions not granted";
     });
   }
 
@@ -59,45 +59,45 @@ class _MyAppState extends State<HomeScreen> {
             PopupMenuButton<String>(
               icon: Icon(Icons.more_vert),
               onSelected: (String choice) {
-                print(choice);
+                _handleMenuItemClick(choice);
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                  PopupMenuItem<String>(
+                PopupMenuItem<String>(
                   value: 'Settings',
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(Icons.settings , color: Colors.blue),
+                      Icon(Icons.settings, color: Colors.blue),
                       Text('Settings')
                     ],
                   ),
                 ),
-                  PopupMenuItem<String>(
-                    value: 'Feedback',
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(Icons.mail , color: Colors.blue),
-                        Text('Feedback')
+                PopupMenuItem<String>(
+                  value: 'Feedback',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.mail, color: Colors.blue),
+                      Text('Feedback')
                     ],
                   ),
                 ),
-                  PopupMenuItem<String>(
+                PopupMenuItem<String>(
                   value: 'Share',
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(Icons.share , color: Colors.blue),
+                      Icon(Icons.share, color: Colors.blue),
                       Text('Share')
                     ],
                   ),
                 ),
-                  PopupMenuItem<String>(
+                PopupMenuItem<String>(
                   value: 'About',
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(Icons.info_outline , color: Colors.blue),
+                      Icon(Icons.info_outline, color: Colors.blue),
                       Text('About')
                     ],
                   ),
@@ -110,7 +110,11 @@ class _MyAppState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Center(child: Text('Give do not disturb access to app in Open Do not Disturb access settings',textAlign: TextAlign.center,)),
+              Center(
+                  child: Text(
+                'Give do not disturb access to app in Open Do not Disturb access settings',
+                textAlign: TextAlign.center,
+              )),
               RaisedButton(
                 onPressed: () => setNormalMode(),
                 child: Text('Set Normal mode'),
@@ -177,5 +181,15 @@ class _MyAppState extends State<HomeScreen> {
 
   Future<void> openDoNotDisturbSettings() async {
     await PermissionHandler.openDoNotDisturbSetting();
+  }
+
+  void _handleMenuItemClick(String choice) {
+    switch (choice) {
+      case "Share":
+        Share.share(
+            "Mute your phone and be indistractable.\nhttps://github.com/Cybertron-Avneesh/Silen-Shh");
+        break;
+      default:
+    }
   }
 }
