@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:silenshh/screens/SplashScreen.dart';
 import 'package:silenshh/screens/HomeScreen.dart';
+
 void main() {
   runApp(MyApp());
 }

@@ -55,6 +55,56 @@ class _MyAppState extends State<HomeScreen> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Silent-Shh'),
+          actions: [
+            PopupMenuButton<String>(
+              icon: Icon(Icons.more_vert),
+              onSelected: (String choice) {
+                print(choice);
+              },
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  PopupMenuItem<String>(
+                  value: 'Settings',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.settings , color: Colors.blue),
+                      Text('Settings')
+                    ],
+                  ),
+                ),
+                  PopupMenuItem<String>(
+                    value: 'Feedback',
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(Icons.mail , color: Colors.blue),
+                        Text('Feedback')
+                    ],
+                  ),
+                ),
+                  PopupMenuItem<String>(
+                  value: 'Share',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.share , color: Colors.blue),
+                      Text('Share')
+                    ],
+                  ),
+                ),
+                  PopupMenuItem<String>(
+                  value: 'About',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.info_outline , color: Colors.blue),
+                      Text('About')
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
         body: Center(
           child: Column(
