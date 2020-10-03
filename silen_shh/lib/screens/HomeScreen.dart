@@ -1,6 +1,7 @@
 // This code shows basic implementation of sound modes
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:share/share.dart';
@@ -8,6 +9,9 @@ import 'package:sound_mode/permission_handler.dart';
 import 'package:sound_mode/sound_mode.dart';
 import 'package:sound_mode/utils/sound_profiles.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'package:highlighter_coachmark/highlighter_coachmark.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -48,6 +52,32 @@ class _MyAppState extends State<HomeScreen> {
       _permissionStatus =
           permissionStatus ? "Permissions Enabled" : "Permissions not granted";
     });
+  }
+
+  Widget button1() {
+    return Container(
+      child: FloatingActionButton(
+        onPressed: null,
+        heroTag: 'Add by WiFi',
+        tooltip: 'Add by WiFi',
+        child: Icon(Icons.wifi),
+        backgroundColor: Colors.indigo[300],
+      ),
+    );
+  }
+
+  Widget button2() {
+    return Container(
+      child: FloatingActionButton(
+        onPressed: null,
+        heroTag: 'Add by Time',
+        tooltip: 'Add by Time',
+        child: Icon(Icons.add),
+        //label: Text('Add by Time'),
+
+        backgroundColor: Colors.indigo[300],
+      ),
+    );
   }
 
   @override
@@ -134,6 +164,39 @@ class _MyAppState extends State<HomeScreen> {
               ),
             ],
           ),
+        ),
+        floatingActionButton: SpeedDial(
+          marginBottom: 20.0,
+          marginRight: 18.0,
+          animatedIcon: AnimatedIcons.menu_close,
+          //animatedIconTheme: IconThemeData(size: 22.0),
+          curve: Curves.bounceIn,
+          overlayColor: Colors.grey[800],
+          overlayOpacity: 0.8,
+          onOpen: () => print('OPENING DIAL'),
+          onClose: () => print('DIAL CLOSED'),
+          tooltip: 'Speed Dial',
+          heroTag: 'speed-dial-hero-tag',
+          backgroundColor: Colors.indigo[300],
+          foregroundColor: Colors.white,
+          elevation: 8.0,
+          shape: CircleBorder(),
+          children: [
+            SpeedDialChild(
+              child: Icon(Icons.timer),
+              backgroundColor: Colors.indigo[300],
+              label: 'Add by Time',
+              labelStyle: TextStyle(fontSize: 18.0),
+              onTap: () => print('SECOND CHILD'),
+            ),
+            SpeedDialChild(
+              child: Icon(Icons.wifi),
+              backgroundColor: Colors.indigo[300],
+              label: 'Add by WiFi',
+              labelStyle: TextStyle(fontSize: 18.0),
+              onTap: () => print('FIRST CHILD'),
+            ),
+          ],
         ),
       ),
     );
