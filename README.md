@@ -1,6 +1,6 @@
 # Silen-Shh
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![](https://img.shields.io/badge/Flutter-Dart-blue) ![](https://img.shields.io/github/issues/Cybertron-Avneesh/Silen-Shh) ![](https://img.shields.io/github/issues-pr-closed/Cybertron-Avneesh/Silen-Shh) ![](https://img.shields.io/github/hacktoberfest/2020/Cybertron-Avneesh/Silen-Shh) ![](https://img.shields.io/github/stars/Cybertron-Avneesh/Silen-Shh?style=social) ![](https://img.shields.io/github/forks/Cybertron-Avneesh/Silen-Shh?style=social)
@@ -33,6 +33,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/aawizard"><img src="https://avatars3.githubusercontent.com/u/58395886?v=4" width="100px;" alt=""/><br /><sub><b>Ananya Agarwal</b></sub></a><br /><a href="https://github.com/Cybertron-Avneesh/Silen-Shh/commits?author=aawizard" title="Code">💻</a></td>
+    <td align="center"><a href="https://cybertron-avneesh.github.io/My-Website/"><img src="https://avatars3.githubusercontent.com/u/54072374?v=4" width="100px;" alt=""/><br /><sub><b>Avneesh Kumar</b></sub></a><br /><a href="#maintenance-Cybertron-Avneesh" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
