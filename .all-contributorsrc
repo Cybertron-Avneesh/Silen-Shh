@@ -13,6 +13,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Cybertron-Avneesh",
+      "name": "Avneesh Kumar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/54072374?v=4",
+      "profile": "https://cybertron-avneesh.github.io/My-Website/",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
