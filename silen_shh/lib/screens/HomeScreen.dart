@@ -10,9 +10,10 @@ import 'package:sound_mode/sound_mode.dart';
 import 'package:sound_mode/utils/sound_profiles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'AboutScreen.dart';
+
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:unicorndial/unicorndial.dart';
-
 class HomeScreen extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -129,12 +130,23 @@ class _MyAppState extends State<HomeScreen> {
                 ),
                 PopupMenuItem<String>(
                   value: 'About',
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(Icons.info_outline, color: Colors.blue),
-                      Text('About')
-                    ],
+
+
+                  child: GestureDetector(
+
+                      onTap:(){ Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AboutSCreen()),
+                      );},
+
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(Icons.info_outline, color: Colors.blue),
+                        Text('About'),
+                      ],
+
+                    ),
                   ),
                 ),
               ],
