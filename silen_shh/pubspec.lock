@@ -79,13 +79,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  highlighter_coachmark:
-    dependency: "direct main"
-    description:
-      name: highlighter_coachmark
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.3"
   matcher:
     dependency: transitive
     description:
@@ -189,6 +182,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  unicorndial:
+    dependency: "direct main"
+    description:
+      name: unicorndial
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.5"
   url_launcher:
     dependency: "direct main"
     description:
