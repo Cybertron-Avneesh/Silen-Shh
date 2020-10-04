@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
              Align(
                 alignment: Alignment.bottomCenter,
-                child: Text("Version 1.0")),
+                child: Text("Version 1.0"),),
         ],
       ),
     );

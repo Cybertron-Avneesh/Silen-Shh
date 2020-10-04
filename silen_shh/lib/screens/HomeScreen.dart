@@ -1,6 +1,7 @@
 // This code shows basic implementation of sound modes
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:share/share.dart';
@@ -8,7 +9,11 @@ import 'package:sound_mode/permission_handler.dart';
 import 'package:sound_mode/sound_mode.dart';
 import 'package:sound_mode/utils/sound_profiles.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'AboutScreen.dart';
+
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:unicorndial/unicorndial.dart';
 class HomeScreen extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -52,6 +57,36 @@ class _MyAppState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var childButtons = List<UnicornButton>();
+
+    childButtons.add(
+      UnicornButton(
+        hasLabel: true,
+        labelText: "Add by WiFi",
+        currentButton: FloatingActionButton(
+          heroTag: "wifi",
+          mini: true,
+          backgroundColor: Colors.indigo[300],
+          child: Icon(Icons.wifi),
+          onPressed: () {},
+        ),
+      ),
+    );
+
+    childButtons.add(
+      UnicornButton(
+        hasLabel: true,
+        labelText: "Add by Time",
+        currentButton: FloatingActionButton(
+          onPressed: () {},
+          heroTag: "time",
+          mini: true,
+          backgroundColor: Colors.indigo[300],
+          child: Icon(Icons.event),
+        ),
+      ),
+    );
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -146,6 +181,12 @@ class _MyAppState extends State<HomeScreen> {
             ],
           ),
         ),
+        floatingActionButton: UnicornDialer(
+            backgroundColor: Color.fromRGBO(0, 0, 0, 0.8),
+            parentButtonBackground: Colors.indigo[300],
+            orientation: UnicornOrientation.VERTICAL,
+            parentButton: Icon(Icons.add),
+            childButtons: childButtons),
       ),
     );
   }
